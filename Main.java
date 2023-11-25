@@ -45,7 +45,7 @@ import Merger.*;
                 obj1.encryptFile(inputFilePath, encryptFilePath, key);
                 System.out.println();
                         
-                FileSplitter.splitAndStoreFile(encryptFilePath, outputFolders, lookupTableFile);
+                FileSplitter.splitAndStoreUserDetails(encryptFilePath, outputFolders);
                 FileMerger.mergeFiles(outputFile, partPaths);
                 obj1.decryptFile(encryptFilePath, decryptFilePath, key);
                 System.out.println("File has been decrypted and stored in txt format");
