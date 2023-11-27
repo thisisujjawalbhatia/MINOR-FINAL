@@ -48,4 +48,7 @@ public class FileMerger {
         // Close the scanner
         scanner.close();
     }
+
+    public static void mergeFiles(String outputFile, String[] partPaths) {
+    }
 }
