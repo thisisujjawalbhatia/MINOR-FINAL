@@ -2,6 +2,7 @@ import java.util.*;
 import Splitter.*;
 import Cipher.*;
 import Merger.*;
+import java.util.Scanner;
 
     class Main {
     public static void main(String[] args) {
@@ -38,7 +39,7 @@ import Merger.*;
                 System.out.println();
                 break;
             case 2:
-                
+
                 int key = 3; 
                 CaesarCipher obj1 = new CaesarCipher();
                 
@@ -51,8 +52,12 @@ import Merger.*;
                 System.out.println("File has been decrypted and stored in txt format");
                 break;
             case 3:
-                System.out.println("View ledger");
-                break;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter user ID to view ledger: ");
+            String userId = scanner.nextLine();
+            Ledger.displayUserLedger(userId);
+            break;
+        
             case 4: 
                 System.out.println("Logout");
                 exit=true;
@@ -64,4 +69,3 @@ import Merger.*;
         }
     }
 }
-    

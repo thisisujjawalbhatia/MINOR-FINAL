@@ -141,5 +141,32 @@ public class Ledger {
     public static int generateRandomBlockchainId() {
         return new Random().nextInt(1000) + 1;
     }
-    
+
+    public static void displayUserLedger(String userId) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("lookupTable.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                StringTokenizer tokenizer = new StringTokenizer(line, "|");
+                while (tokenizer.hasMoreTokens()) {
+                    String userEntry = tokenizer.nextToken();
+                    StringTokenizer userTokenizer = new StringTokenizer(userEntry, ",");
+                    String currentUserId = userTokenizer.nextToken();
+                    if (currentUserId.equals(userId)) {
+                        System.out.println("--------------------------------------------");
+                        System.out.println("User Ledger for User ID: " + userId);
+                        while (userTokenizer.hasMoreTokens()) {
+                            String filePart = userTokenizer.nextToken();
+                            System.out.println("File Part: " + filePart);
+                        }
+                        System.out.println("--------------------------------------------");
+                        break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
