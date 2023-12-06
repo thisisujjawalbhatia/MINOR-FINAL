@@ -39,23 +39,26 @@ import java.util.Scanner;
                 System.out.println();
                 break;
             case 2:
-
-                int key = 3; 
-                CaesarCipher obj1 = new CaesarCipher();
-                
-                obj1.encryptFile(inputFilePath, encryptFilePath, key);
-                System.out.println();
-                        
-                FileSplitter.splitAndStoreUserDetails(encryptFilePath, outputFolders);
-                FileMerger.mergeFiles(outputFile, partPaths);
-                obj1.decryptFile(encryptFilePath, decryptFilePath, key);
-                System.out.println("File has been decrypted and stored in txt format");
-                break;
-            case 3:
-            Scanner scanner = new Scanner(System.in);
+                 Scanner scanner = new Scanner(System.in);
             System.out.println("Enter user ID to view ledger: ");
             String userId = scanner.nextLine();
             Ledger.displayUserLedger(userId);
+                // int key = 3; 
+                // CaesarCipher obj1 = new CaesarCipher();
+                
+                // obj1.encryptFile(inputFilePath, encryptFilePath, key);
+                // System.out.println();
+                        
+                // FileSplitter.splitAndStoreUserDetails(encryptFilePath, outputFolders);
+                // FileMerger.mergeFiles(outputFile, partPaths);
+                // obj1.decryptFile(encryptFilePath, decryptFilePath, key);
+                // System.out.println("File has been decrypted and stored in txt format");
+                // break;
+            case 3:
+            // Scanner scanner = new Scanner(System.in);
+            // System.out.println("Enter user ID to view ledger: ");
+            // String userId = scanner.nextLine();
+            // Ledger.displayUserLedger(userId);
             break;
         
             case 4: 
