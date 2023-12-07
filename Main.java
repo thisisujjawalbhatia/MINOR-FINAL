@@ -32,7 +32,7 @@ import java.util.Scanner;
         System.out.println("press 3 to view ledger  ");
         System.out.println("press 4 to logout   ");
         int choice = in.nextInt();
-        
+
         switch (choice) {
             case 1:
                 PersonalDetailsToFile.main(args);
@@ -43,12 +43,12 @@ import java.util.Scanner;
             System.out.println("Enter user ID to view ledger: ");
             String userId = scanner.nextLine();
             Ledger.displayUserLedger(userId);
-                // int key = 3; 
+                // int key = 3;
                 // CaesarCipher obj1 = new CaesarCipher();
-                
+
                 // obj1.encryptFile(inputFilePath, encryptFilePath, key);
                 // System.out.println();
-                        
+
                 // FileSplitter.splitAndStoreUserDetails(encryptFilePath, outputFolders);
                 // FileMerger.mergeFiles(outputFile, partPaths);
                 // obj1.decryptFile(encryptFilePath, decryptFilePath, key);

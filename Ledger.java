@@ -1,3 +1,5 @@
+import com.example.HashGenerator.HashGenerator;
+// package com.example.ledgerPackage;
 import java.io.*;
 import java.util.StringTokenizer;
 import java.util.Date;
@@ -42,7 +44,7 @@ public class Ledger {
         scanner.nextLine(); 
         System.out.print("Enter previous hash: ");
         String prevHash = scanner.nextLine().trim();
-        System.out.print("Enter current hash: ");
+        System.out.print("current hash is :" + HashGenerator.customHash("personalDetailsUser"+userId+".txt"));
         String currHash = scanner.nextLine().trim();
         String timestamp = getCurrentTimestamp();
 
@@ -99,7 +101,7 @@ public class Ledger {
 
     public static void displayLedger(String ledgerData) {
         StringTokenizer blockTokenizer = new StringTokenizer(ledgerData, "|");
-        String[] fields = {"Blockchain id", "Transaction id", "User id", "Previous hash", "Current hash ", "Timestamp"};
+        String[] fields = {"Blockchain id", "Transaction id", "User id", "Previous hash", "Timestamp","Current hash "};
         int blockCount = 1;
     
         while (blockTokenizer.hasMoreTokens()) {
@@ -129,8 +131,8 @@ public class Ledger {
         System.out.println("Transaction ID: " + block.transactionId);
         System.out.println("User ID: " + block.userId);
         System.out.println("Previous Hash: " + block.prevHash);
-        System.out.println("Current Hash: " + block.currHash);
         System.out.println("Timestamp: " + block.timestamp);
+        System.out.println("Current Hash: " + block.currHash);
     }
        
     public static String getCurrentTimestamp() {
@@ -142,31 +144,10 @@ public class Ledger {
         return new Random().nextInt(1000) + 1;
     }
 
-    public static void displayUserLedger(String userId) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("lookupTable.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                StringTokenizer tokenizer = new StringTokenizer(line, "|");
-                while (tokenizer.hasMoreTokens()) {
-                    String userEntry = tokenizer.nextToken();
-                    StringTokenizer userTokenizer = new StringTokenizer(userEntry, ",");
-                    String currentUserId = userTokenizer.nextToken();
-                    if (currentUserId.equals(userId)) {
-                        System.out.println("--------------------------------------------");
-                        System.out.println("User Ledger for User ID: " + userId);
-                        while (userTokenizer.hasMoreTokens()) {
-                            String filePart = userTokenizer.nextToken();
-                            System.out.println("File Part: " + filePart);
-                        }
-                        System.out.println("--------------------------------------------");
-                        break;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void displayUserLedger(String userId2) {
     }
-
+    
 }
+
+
+
